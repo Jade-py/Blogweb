@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wg
+ht@400;900&family=Patua+One&family=Poppins&family=Tektur&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/todo.css" />
+    <script
+      src="https://kit.fontawesome.com/ecb170e391.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #DAC0A3;
+    overflow: hidden;
+    /* border-radius: 50px; */
+
+}
+i{
+    padding-left: 9px;
+}
+a{
+  text-decoration: none;
+  color: black;
+  /* color: #fff; */
+}
+hr{
+
+
+    background-color: #fff;
+    height: 5px;
+    width: 70%;
+
+}
+.main{
+    width: 97%;
+    height: 97vh;
+    margin: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    background-color: #F8F0E5;
+}
+.left{
+    width: 18%;
+    height: 100%;
+    /* background-color: aqua; */
+}
+
+.leftHead{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.leftmid{
+    border-right: 2px solid #fff;
+
+}
+.leftmidlist{
+    list-style-type: none;
+    cursor: pointer;
+}
+.leftmidlist li{
+    font-size: 1.2rem;
+     padding: 4px 0px 10px 0px;
+
+     /* padding:14px 2px 10px 10px; */
+}
+.leftmidlist li:hover{
+    background-color: #EADBC8;
+}
+.leftmid p{
+    padding-left: 4px;
+    margin-left: 32px;
+    color:cadetblue;
+}
+
+.leftend{
+    border-right: 2px solid #fff;
+}
+.end{
+    margin-left: 20px;
+    font-size: 1rem;
+
+}
+
+.right{
+    width: 82%;
+    height: 100%;
+    /* background-color: black; */
+}
+.right-Content{
+    width: 97%;
+    height: 97%;
+    margin: 10px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    /* display: grid;
+    justify-content: center; */
+}
+/* .todoHeading{
+    margin: 40px auto;
+} */
+.todoHeading h1{
+
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+.MyTodoList{
+    width: 600px;
+    min-height: 300px;
+    /* height: fit-content; */
+    max-height: 500px;
+    overflow-y: auto;
+    margin: 20px auto;
+    background-color: #DAC0A3;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.History_head h3{
+    margin: 6px auto 2px 64px;
+    font-size: 1.4rem;
+  }
+  .ToDo i{
+    margin: 0px 5px 20px auto;
+      padding-top: 20px;
+      cursor: pointer;
+  }
+  .History_head{
+    display: flex;
+
+  }
+  .popup1 {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+    margin: 0 auto;
+    /* margin-right: 20px; */
+  }
+  .popup1 li{
+    list-style: none;
+  }
+
+  .popup-btn1 {
+    background-color: #F8F0E5;
+    color: black;
+    width: 10%;
+
+    /* padding: 0px 40px; */
+    border: none;
+    /* border-radius: 4px; */
+    cursor: pointer;
+  }
+
+  .popup-content1 {
+    display: none;
+    position: absolute;
+    background-color: #EADBC8;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 3;
+    animation: fadeInScale 0.3s ease;
+    top: calc(-100% + 50px); /* Adjust this value as needed */
+    right: 20px;
+  }
+
+  .popup1:hover .popup-content1 {
+    display: block;
+    z-index: 3;
+  }
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .popup-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .popup-content1 a:hover {
+    background-color: #F8F0E5;
+    z-index: 9;
+  }
+.mylist li{
+    display: flex;
+    padding-left: 4px;
+    font-size: 1.3rem;
+  }
+
+
+/* input[type="text"] {
+    Add your styles here
+}
+
+input[type="checkbox"] {
+    Add your styles here
+} */
+.addNew{
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+
+  .mylist p{
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+    input:checked+li {
+    text-decoration: line-through;
+    /* display: inline; */
+    text-decoration-color: #102C57;
+  }
+  input[type="checkbox"] {
+    display: flex;
+    /* height: 8px; */
+  }
+  .checkli{
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    height: 40px;
+  }
+
+
+
+
+
+  .todoItems{
+    border: none;
+    width: 400px;
+    height: 40px;
+    border-bottom: 2px solid #fff;
+    background-color: transparent;
+    /* color: #fff; */
+  }
+
+  .dropClock{
+    width: 40%;
+    height: 50px;
+    position: absolute;
+    margin-left: 30%;
+    background-color: #102C57;
+    display: block;
+    color: #fff;
+    z-index: 12;
+    border-radius: 0 0 20px 20px;
+    }
+    .timer{
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+      <div class="dropClock"><div class="timer">00:00:00</div></div>
+
+        <div class="left">
+            <div class="leftHead">
+                <h3>Edu_Hub</h3>
+                <hr />
+            </div>
+            <div class="leftmid">
+                <ul class="leftmidlist" id="leftmidlist">
+                  <li>
+                    <i class="fa-solid fa-house-user fa-lg"></i
+                    ><a href="{% url 'workspace' %}">&emsp;Home</a>
+                  </li>
+                  <li style="padding-left: 3px">
+                    <i class="fa-solid fa-square-plus fa-lg"></i
+                    ><a href="{% url 'create_new' %}">&emsp;Create New</a>
+                  </li>
+                  <li style="padding-left: 3px">
+                    <i
+                      class="fa-solid fa-note-sticky fa-lg"
+                      style="color: #000000"
+                    ></i
+                    ><a href="{% url 'notes' %}">&emsp;Notes</a>
+                  </li>
+                  <li style="padding-left: 3px">
+                    <i class="fa-solid fa-bell fa-lg"></i
+                    ><a href="{% url 'notifications' %}">&emsp;Notifications</a>
+                  </li>
+                </ul>
+                <p>Workspace</p>
+              </div>
+              <div class="leftend">
+                <ul class="leftmidlist end" id="leftmidlist">
+                  <li>
+                    <i class="fa-solid fa-hourglass-end fa-sm"></i
+                    ><a href="{% url 'deadlines' %}">&emsp;Deadlines</a>
+                  </li>
+
+                  <li>
+                    <i class="fa-solid fa-list-check fa-sm"></i
+                    ><a href="{% url 'todo' %}">&emsp;To-do</a>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-text-width fa-sm"></i
+                    ><a href="{% url 'summarization' %}">&emsp;Summarization</a>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-calendar-days fa-sm"></i
+                    ><a href="{% url 'calendar' %}">&emsp;Calendar</a>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-headphones fa-sm" style="color: #000000"></i
+                    ><a href="{% url 'music' %}">&emsp;Music</a>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-trash-can fa-sm" style="color: #000000"></i
+                    ><a href="{% url 'trash' %}">&emsp;Trash</a>
+                  </li>
+                </ul>
+              </div>
+        </div>
+        <div class="right">
+            <div class="right-Content">
+                <div class="todoHeading">
+                    <h1>To-Do List</h1>
+                </div>
+                <div class="MyTodoList" >
+                    <div class="History_head">
+                        <h3>To-Do</h3>
+
+                        <div class="popup1">
+                          <li class="popup-btn1">
+                            <i class="fa-solid fa-braille fa-sm"></i>
+                          </li>
+                          <div class="popup-content1">
+                            <a href="create.html">Delete All</a>
+
+                          </div>
+                        </div>
+                      </div>
+                    <form action="/todo.html" method="post">
+                        <ol class="mylist todoli" style="margin-right: 30%;">
+                            <div class="checkli"><input type="checkbox" name="checkbox" id=""><li><input type="text" name="" id="" class="todoItems" placeholder="First Item" ></li></div>
+
+                          </ol>
+                          <div class="addNew">
+                            <input type="text" id="newTodoItem" placeholder="New Item" class="todoItems">
+                            <button type="button" class="btn btn-outline-dark" id="addItemButton">Add</button>                          </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const addItemButton = document.getElementById("addItemButton");
+    const newTodoItemInput = document.getElementById("newTodoItem");
+    const todoList = document.querySelector(".todoli");
+
+    addItemButton.addEventListener("click", function() {
+        const newItemText = newTodoItemInput.value.trim();
+        if (newItemText !== "") {
+            const newItem = document.createElement("div");
+            newItem.classList.add("checkli");
+            newItem.innerHTML = `
+                <input type="checkbox" name="checkbox">
+                <li>${newItemText}</li>
+            `;
+            todoList.appendChild(newItem);
+            newTodoItemInput.value = "";
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+        const listItems = document.querySelectorAll("#leftmidlist li");
+
+        listItems.forEach((li) => {
+          li.addEventListener("click", function () {
+            const link = li.querySelector("a");
+            if (link) {
+              window.location.href = link.href;
+            }
+          });
+        });
+      });
+  //     function updateClock() {
+  //   const now = new Date();
+  //   const hours = now.getHours().toString().padStart(2, '0');
+  //   const minutes = now.getMinutes().toString().padStart(2, '0');
+  //   const seconds = now.getSeconds().toString().padStart(2, '0');
+  //   const currentTime = `${hours}:${minutes}:${seconds}`;
+
+  //   const clockElement = document.getElementById('clock');
+  //   clockElement.textContent = currentTime;
+  // }
+
+  // // Update the clock every second
+  // setInterval(updateClock, 1000);
+
+  // // Initial update
+  // updateClock();
+
+
+    </script>
+
+
+</body>
+</html>

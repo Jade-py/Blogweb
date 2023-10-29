@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Carter+One&family=Clicker+Script&family=Lilita+One&family=Lobster&family=Montserrat+Alternates:wght@400;500;700&family=Montserrat:wght@600;900&family=Oleo+Script&family=Open+Sans:wght@600&family=Patua+One&family=Poppins:wght@200;300;400;600;700&family=Stardos+Stencil:wght@400;700&family=Tektur&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+    <script
+      src="https://kit.fontawesome.com/ecb170e391.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+
+    --bg-green-600:#275030;
+    --bg-green-500:#27503e;
+    --bg-green-400:#216c53;
+    --bg-green-300:#33866a;
+    --bg-green-200:#98d6bb;
+    --bg-green-100:#b8e4d1;
+    --bg-black-900: #212121;
+    --bg-green-50:#C7E8CA;
+    --bg-grey-50:#F6FBF4;
+    --bg-border-100:#004225;
+}
+body{
+  /* background-color: #EADBC8; */
+  /* background-color:var(--bg-border-100); */
+  background-color: #F5F5DC;
+  /* overflow: hidden; */
+  /* border-radius: 50px; */
+
+}
+i{
+  padding-left: 9px;
+}
+a{
+text-decoration: none;
+color: black;
+/* color: #fff; */
+}
+.Main{
+  width: 98%;
+  height: 97vh;
+  margin: 10px 15px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 15px -1px #000000;
+box-shadow: 0px 0px 15px -1px #000000;
+  border-radius: 20px;
+  display: flex;
+}
+.left{
+  width: 18%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 20px 0 0 20px;
+}
+
+.leftHead{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+hr{
+
+
+    background-color: #fff;
+    height: 5px;
+    width: 70%;
+
+}
+.leftmid{
+    /* border-right: 2px solid #EADBC8; */
+    border-right: 2px solid var(--bg-green-300);
+
+}
+.leftend{
+    /* border-right: 2px solid #EADBC8; */
+    border-right: 2px solid var(--bg-green-300);
+}
+.leftmidlist{
+    list-style-type: none;
+    cursor: pointer;
+}
+.leftmidlist li{
+    font-size: 1.2rem;
+     padding: 0px 0px 10px 0px;
+     font-family: 'Ubuntu', sans-serif;
+     /* padding:14px 2px 10px 10px; */
+}
+.leftmidlist li:hover{
+    /* background-color: #EADBC8; */
+    /* background-color: var(--bg-green-50); */
+    /* border: 2px solid var(--bg-green-500); */
+    background-color: #FFF6F4;
+    border-bottom: 2px solid #33866a;
+}
+/* .leftmid p{
+    padding-left: 4px;
+    margin-left: 32px;
+    color:cadetblue;
+} */
+.end{
+    margin-left: 20px;
+    font-size: 1rem;
+
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+    margin-right: 20px;
+  }
+
+  .popup-btn {
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    padding: 0px 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .popup-content {
+    display: none;
+    position: absolute;
+    /* background-color: #EADBC8; */
+    background-color: #FFF6F4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 1;
+    animation: fadeInScale 0.3s ease;
+    top: calc(-100% - 10px); /* Adjust this value as needed */
+  }
+
+  .popup:hover .popup-content {
+    display: block;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .popup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .popup-content a:hover {
+    background-color: #F8F0E5;
+    border: 2px solid var(--bg-green-100);
+    /* background-color: #F6FBF4; */
+  }
+
+
+
+
+
+.right{
+  width: 82%;
+  height: 100%;
+  background-color:#fff;
+  border-radius: 0 20px 20px 0;
+  /* display: flex;
+  flex-direction: column; */
+}
+.Container{
+  width: 96%;
+  height: 94%;
+  margin: 20px;
+  /* background-color: aqua; */
+  border-radius: 15px 15px 0 0;
+}
+.Image{
+  width: 100%;
+  height: 300px;
+  border-radius: 15px 15px 0 0;
+}
+.Image img{
+  width: 100%;
+  height: 300px;
+  border-radius: 15px 15px 0 0;
+}
+.Greet{
+  z-index: 6;
+  color: white;
+  position: absolute;
+  top: 190px;
+  font-size: 1.2rem;
+  font-family: 'Stardos Stencil', cursive;
+}
+
+.Content{
+  width: 77.2%;
+  height: 54%;
+  top: 40%;
+  position: absolute;
+  z-index: 3;
+  /* background-color: aqua; */
+  display: flex;
+  border-radius: 15px;
+}
+.History{
+width: 50%;
+height: 100%;
+/* background-color: black; */
+background-color: #fff;
+/* background-color: #FFF6F4; */
+/* border: 4px solid #F8F0E5; */
+border: 2px solid var(--bg-green-500);
+-webkit-box-shadow: 0px 0px 15px -1px #000000;
+box-shadow: 0px 0px 15px -1px #000000;
+border-radius: 15px;
+/* display: flex; */
+}
+.History_head{
+  display: flex;
+  /* font-family: 'Ubuntu', sans-serif; */
+
+}
+
+.History h3{
+  margin: 6px auto 2px 0px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.History i{
+  margin: 0px 5px 20px auto;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.cards{
+  width: 96.5%;
+  height: 84%;
+  margin: 10px;
+  /* background-color: black; */
+  border-radius: 15px;
+  justify-content: center;
+
+  display: flex;
+}
+.card{
+  width: 49%;
+  height: 100%;
+  /* background-color: #F8F0E5; */
+  /* background-color: var(--bg-grey-50); */
+  background-color: #FFF6F4;
+  color: black;
+  padding: 10px 10px 10px 10px ;
+  margin-right: 10px;
+  font-family: 'Stardos Stencil', cursive;
+  color: #004225;
+}
+.card:hover{
+  /* background-color: #DAC0A3; */
+  background-color: #fff;
+  /* border: 3px solid #33866a; */
+}
+.rightContainer{
+  width: 48.9%;
+  height: 100%;
+  background-color: #fff;
+  /* border: 4px solid #F8F0E5; */
+  margin-left: 15px;
+  border-radius: 15px;
+}
+.ToDo{
+  width: 100%;
+  height: 49%;
+  /* background-color: #F8F0E5; */
+  background-color: #FFF6F4;
+  /* border: 4px solid #F8F0E5; */
+  border: 2px solid var(--bg-green-400);
+  -webkit-box-shadow: 0px 0px 15px -1px #000000;
+box-shadow: 0px 0px 15px -1px #000000;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  border-radius: 15px;
+  font-family: 'Stardos Stencil', cursive;
+}
+.ToDo::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.ToDo::-webkit-scrollbar-thumb {
+  /* background: #EADBC8; */
+  background: var(--bg-green-400);
+  border-radius: 5px;
+}
+.ToDo::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+}
+.ToDo:hover{
+  /* background-color: #DAC0A3; */
+  background-color: #fff;
+}
+.Deadlines{
+  width: 100%;
+  height: 49%;
+  /* background-color: #F8F0E5;
+  border: 4px solid #F8F0E5; */
+  background-color:#FFF6F4;
+  /* border: 4px solid #F8F0E5; */
+  border: 2px solid var(--bg-green-400);
+  -webkit-box-shadow: 0px 0px 15px -1px #000000;
+  box-shadow: 0px 0px 15px -1px #000000;
+  font-family: 'Stardos Stencil', cursive;
+  border-radius: 15px;
+}
+.Deadlines:hover{
+  /* background-color: #DAC0A3; */
+  background-color: #fff;
+}
+.ToDo h3{
+  margin: 6px auto 2px 14px;
+  font-size: 1.4rem;
+}
+.ToDo i{
+  margin: 0px 5px 20px auto;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.todoli{
+  font-size: 1.3rem;
+}
+.Deadlines h3{
+  margin: 6px auto 2px 14px;
+  font-size: 1.4rem;
+}
+
+.Deadlines i{
+  margin: 0px 5px 20px auto;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.Greet p{
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+.search{
+  position: absolute;
+  top: 90px;
+  left: 42%;
+  width: 600px;
+  height: 35px;
+  z-index: 9;
+
+}
+.search-action{
+  height: 100%;
+}
+.searchBar{
+  width: 80%;
+  height: 100%;
+  border-radius: 20px;
+}
+.search-btn{
+  background-color: transparent;
+  cursor: pointer;
+  padding: 1px;
+}
+.search i{
+  cursor: pointer;
+  /* z-index: 9; */
+}
+.popup1 {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+    /* margin-right: 20px; */
+  }
+  .popup1 li{
+    list-style: none;
+  }
+
+  .popup-btn1 {
+    background-color: #F8F0E5;
+    color: black;
+    width: 10%;
+
+    /* padding: 0px 40px; */
+    border: none;
+    /* border-radius: 4px; */
+    cursor: pointer;
+  }
+
+  .popup-content1 {
+    display: none;
+    position: absolute;
+    /* background-color: #EADBC8; */
+    background-color: var(--bg-grey-50);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 3;
+    animation: fadeInScale 0.3s ease;
+    top: calc(-100% + 50px); /* Adjust this value as needed */
+    right: 20px;
+  }
+
+
+.toEdit{
+  margin-left: 10px;
+}
+.toEdit i{
+  padding: 0;
+}
+
+  .popup1:hover .popup-content1 {
+    display: block;
+    z-index: 3;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .popup-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .popup-content1 a:hover {
+    /* background-color: #F8F0E5; */
+    border:3px solid var(--bg-green-400);
+    border-radius: 4px;
+    background-color: var(--bg-grey-100);
+    z-index: 9;
+  }
+  .ListTodo{
+    height: 70%;
+    overflow-y: auto;
+  }
+  .addNew{
+    padding: 10px;
+    padding-bottom: 0px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* column-gap: 10px; */
+}
+
+
+ /* ///////////////////////// */
+ .mylist li{
+  display: flex;
+  padding-left: 4px;
+  font-size: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+}
+
+
+/* input[type="text"] {
+  Add your styles here
+}
+
+input[type="checkbox"] {
+  Add your styles here
+} */
+.addNew{
+  padding: 0px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 5px;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+  /* column-gap: 10px; */
+}
+ol{
+  margin-bottom: 0;
+}
+
+.mylist p{
+  padding-left: 10px;
+  padding-top: 0px;
+}
+  input:checked+li {
+  text-decoration: line-through;
+  /* display: inline; */
+  text-decoration-color: #102C57;
+}
+input[type="checkbox"] {
+  display: flex;
+  /* height: 8px; */
+}
+.checkli{
+  display: flex;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+
+
+
+
+.todoItems{
+  border: none;
+  width: 400px;
+  margin: 0;
+  padding: 0;
+  /* height: 40px; */
+  border-bottom: 2px solid var(--bg-green-300);
+  background-color: transparent;
+  /* color: #fff; */
+}
+
+.deadline{
+  margin-left: 50px;
+  height:100px;
+  font:40px;
+}
+#DeadlineDate{
+  border: none;
+  background-color: #f6efee;
+  cursor: pointer;
+  height:100px;
+font:40px;
+}
+#DeadlineDate:focus{
+  outline: none;
+  border-bottom: 2px solid #f7c7db; /* Customize the focus border color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+
+
+}
+
+
+
+  .ListTodo::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .ListTodo::-webkit-scrollbar-thumb {
+    background: #EADBC8;
+    border-radius: 5px;
+  }
+  .ListTodo::-webkit-scrollbar-track {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+  }
+
+.dropClock{
+width: 40%;
+height: 50px;
+position: absolute;
+margin-left: 30%;
+background-color: #102C57;
+display: block;
+color: #fff;
+z-index: 12;
+border-radius: 0 0 20px 20px;
+}
+.timer{
+  text-align: center;
+  font-size: 1.5rem;
+}
+.search-button{
+  background: transparent;
+  border: none;
+}
+    </style>
+  </head>
+  <body>
+    <div class="Main">
+      <div class="left">
+        <div class="leftHead">
+          <h3>Edu_Hub</h3>
+          <hr />
+        </div>
+        <div class="leftmid">
+          <ul class="leftmidlist" id="leftmidlist">
+            <li>
+              <i class="fa-solid fa-house-user fa-lg"></i
+              ><a href="/index.html">&emsp;Home</a>
+            </li>
+            <li style="padding-left: 3px">
+              <i
+                class="fa-solid fa-note-sticky fa-lg"
+                style="color: #000000"
+              ></i
+              ><a href="{% url 'notes' %}">&emsp;Notes</a>
+            </li>
+            <li style="padding-left: 3px">
+              <i class="fa-solid fa-square-plus fa-lg"></i
+              ><a href="{% url 'create_new' %}">&emsp;Create New</a>
+            </li>
+            <li style="padding-left: 3px">
+              <i class="fa-solid fa-bell fa-lg"></i
+              ><a href="{% url 'dashboard' %}">&emsp;Dashboard</a>
+            </li>
+            <li>
+              <i
+                class="fa-solid fa-clipboard-list fa-lg"
+                style="color: #000000"
+              ></i
+              ><a href="/Plans.html">&emsp;Plans</a>
+            </li>
+          </ul>
+        </div>
+        <div class="leftend">
+          <ul class="leftmidlist end" id="leftmidlist">
+            <li>
+              <i class="fa-solid fa-list-check fa-sm" style="color: #000000"></i
+              ><a href="/index.html">&emsp;To-do</a>
+            </li>
+            <li>
+              <i
+                class="fa-solid fa-calendar-check fa-sm"
+                style="color: #000000"
+              ></i
+              ><a href="{% url 'storage' %}">&emsp;Storage</a>
+            </li>
+            <li>
+              <i
+                class="fa-solid fa-hourglass-end fa-sm"
+                style="color: #000000"
+              ></i
+              ><a href="/index.html">&emsp;Deadlines</a>
+            </li>
+            <li>
+              <i
+                class="fa-solid fa-calendar-days fa-sm"
+                style="color: #000000"
+              ></i
+              ><a href="{% url 'calendar' %}">&emsp;Calendar</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-text-width fa-sm" style="color: #000000"></i
+              ><a href="/index.html">&emsp;Summarization</a>
+            </li>
+          </ul>
+          <ul class="leftmidlist" id="leftmidlist">
+            <li>
+              <i class="fa-solid fa-gears fa-lg" style="color: #000000"></i
+              ><a href="/index.html">&emsp;Settings</a>
+            </li>
+            <div class="popup">
+              <li class="popup-btn">
+                <i class="fa-solid fa-user fa-lg" style="color: #000000"></i
+                >&emsp;Profile
+              </li>
+              <div class="popup-content">
+                <a href="{% url 'password_change' %}">Change password</a>
+                <a href="{% url 'logout' %}">Log Out</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <div class="Container">
+          <div class="Image">
+            <img src="{% static 'StudyFront61.png' %}" alt="" />
+          </div>
+          <div class="search">
+            <input
+              type="search"
+              name="Search"
+              id=""
+              class="searchBar"
+              placeholder="&emsp;Ask Anything..."
+            />
+            <i
+              class="fa-solid fa-magnifying-glass fa-xl"
+              style="color: #fff"
+            ></i>
+          </div>
+          <div class="Greet">
+            <p style="margin-left: 10px; margin-bottom: 0;">Hey! {{ request.user }}</p>
+            <p id="Current_Date">13-08-2023</p>
+          </div>
+          <div class="Content">
+            <div class="History">
+              <div class="History_head">
+                <h3>Recent Works</h3>
+                <a href="{% url 'notes' %}"><i class="fa-solid fa-braille fa-sm"></i></a>
+              </div>
+
+              <div class="cards">
+                <div class="card">
+                  <div class="History_head">
+                <h3>Heading</h3>
+                <div class="popup1">
+                  <li class="popup-btn1">
+                    <i class="fa-regular fa-circle fa-sm" style="color: #000000"></i>
+                  </li>
+                  <div class="popup-content1">
+                    <a href="{% url 'create_new' %}">Edit</a>
+
+                  </div>
+                </div>
+              </div>
+                  {% for works in recent_works %}
+                    <p>{{ works.item }}</p>
+                  {% endfor %}
+                </div>
+                <div class="card">
+                  <div class="History_head">
+                <h3>Heading</h3>
+                <div class="popup1">
+                  <li class="popup-btn1">
+                    <i class="fa-regular fa-circle fa-sm" style="color: #000000"></i>
+                  </li>
+                  <div class="popup-content1">
+                    <a href="{% url 'create_new' %}">Edit</a>
+
+                  </div>
+                </div>
+              </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dicta impedit quis alias, labore quod id excepturi, obcaecati ab sequi qui aspernatur sed corporis delectus optio odit doloremque aperiam quae?</p>
+                </div>
+              </div>
+            </div>
+            <div class="rightContainer">
+              <div class="ToDo">
+                <div class="History_head">
+                  <h3>To-Do</h3>
+
+                  <div class="popup1">
+                    <li class="popup-btn1">
+                      <i class="fa-solid fa-braille fa-sm"></i>
+                    </li>
+                    <div class="popup-content1">
+                      <a href="todo.html">Open</a>
+
+                    </div>
+                  </div>
+                </div>
+                <form method="POST" action="{% url 'movetotrash' %}">
+    {% csrf_token %}
+    {% for item in todolist %}
+        <ol class="mylist todoli" style="margin-right: 30%;">
+            <div class="checkli">
+                <input type="checkbox"
+                       name="checkbox"
+                       value="{{ item.id }}"
+                       class="asdf"
+                       id="checkbox_{{ item.id }}">
+                <li>
+                    {{ item.task }}
+                </li>
+              <a href="{% url 'edit_todo' item.pk %}" class="toEdit"><i class="fa-solid fa-pen-to-square fa-sm"></i></a>
+            </div>
+        </ol>
+    {% endfor %}
+</form>
+
+
+
+                    </ol>
+                <form method="POST">
+                  {% csrf_token %}
+                    <div class="addNew">
+                      <input type="text" id="newTodoItem" name="{{ form1.task.name }}" placeholder="New Task"
+                             class="todoItems">
+  <!-- <button type="button" id="addItemButton">Add</button> -->
+                      <button type="submit" name="form1_submit" value=" " class="btn btn-outline-dark"
+                              id="addItemButton">Add</button>
+                    </div>
+
+              </form>
+
+
+              </div>
+              <div class="Deadlines">
+                <div class="History_head">
+                  <h3>Deadlines</h3>
+                  <div class="popup1">
+                    <li class="popup-btn1">
+                      <i class="fa-solid fa-braille fa-sm"></i>
+                    </li>
+                    <div class="popup-content1">
+                      <a href="deadlines.html">Open</a>
+
+                    </div>
+                  </div>
+                </div>
+                {% for item in deadlinesList %}
+                  {{ item.task }}
+                  {{ item.ended_on }}
+                {% endfor %}
+                <form method="POST">
+                  {% csrf_token %}
+                  <ol class="mylist todoliD" style="margin-right: 30%;">
+                    </ol>
+                    <div class="addNew">
+                      <input type="hidden" name="form2_submit" value=" ">
+                      <input type="text" id="newTodoItemD" placeholder="New Deadline" name="{{ form2.task.name }}"
+                             class="todoItems">
+                      <input type="date" id="DeadlineDate" name="{{ form2.ended_on.name }}">
+  <!-- <button type="button" id="addItemButton">Add</button> -->
+  <button type="submit" class="btn btn-outline-dark" id="addItemButtonD">Add</button>
+                    </div>
+
+              </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const addItemButton = document.getElementById("addItemButton");
+    const newTodoItemInput = document.getElementById("newTodoItem");
+    const todoList = document.querySelector(".todoli");
+
+    addItemButton.addEventListener("click", function() {
+        const newItemText = newTodoItemInput.value.trim();
+        if (newItemText !== "") {
+            const newItem = document.createElement("div");
+            newItem.classList.add("checkli");
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const addItemButton = document.getElementById("addItemButton");
+    const newTodoItemInput = document.getElementById("newTodoItem");
+    const todoList = document.querySelector(".todoli");
+
+    addItemButton.addEventListener("click", function() {
+<!--        const newItemText = newTodoItemInput.value.trim();-->
+        if (newItemText !== "") {
+            const newItem = document.createElement("div");
+            newItem.classList.add("checkli");
+            newItem.innerHTML = `
+                <input type="checkbox" name="checkbox">
+<!--                <li>${newItemText}</li>-->
+                    <li></li>
+                fa-sm"></i></a>
+            `;
+            todoList.appendChild(newItem);
+            newTodoItemInput.value = "";
+        }
+    });
+});
+      const date = new Date();
+
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      var element = document.getElementById("Current_Date");
+      element.innerHTML = date.toLocaleString("en-IN", options);
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const listItems = document.querySelectorAll("#leftmidlist li");
+
+        listItems.forEach((li) => {
+          li.addEventListener("click", function () {
+            const link = li.querySelector("a");
+            if (link) {
+              window.location.href = link.href;
+            }
+          });
+        });
+      });
+      document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll(".asdf");
+    const form = document.querySelector("form");
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            // Check if any checkbox is checked
+            const isChecked = Array.from(checkboxes).some(function (cb) {
+                return cb.checked;
+            });
+
+            if (isChecked) {
+                // Submit the form
+                form.submit();
+                // Disable all checkboxes to prevent further submission
+                checkboxes.forEach(function (cb) {
+                    cb.disabled = true;
+                });
+            }
+        });
+    });
+});
+
+    </script>
+  </body>
+</html>

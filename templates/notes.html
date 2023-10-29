@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Carter+One&family=Clicker+Script&family=Lilita+One&family=Lobster&family=Montserrat+Alternates:wght@400;500;700&family=Montserrat:wght@600;900&family=Oleo+Script&family=Open+Sans:wght@600&family=Patua+One&family=Poppins:wght@200;300;400;600;700&family=Stardos+Stencil:wght@400;700&family=Tektur&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/css/Notes.css" /> -->
+    <script
+      src="https://kit.fontawesome.com/ecb170e391.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #EADBC8;
+    overflow: hidden;
+    /* border-radius: 50px; */
+
+}
+i{
+    padding-left: 9px;
+}
+a{
+  text-decoration: none;
+  color: black;
+  /* color: #fff; */
+}
+.main{
+    width: 99%;
+    height: 95%;
+    margin: 10px 15px;
+    display: flex;
+    /* border-radius: 20px; */
+    flex-direction: row;
+}
+.left{
+    height: 97vh;
+    width: 18%;
+    border-radius: 20px 0 0 20px;
+    background-color: #fff;
+}
+
+
+.leftHead{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+hr{
+
+
+    background-color: #fff;
+    height: 5px;
+    width: 70%;
+
+}
+.leftmid{
+    border-right: 2px solid #EADBC8;
+
+}
+.leftend{
+    border-right: 2px solid #EADBC8;
+}
+.leftmidlist{
+    list-style-type: none;
+    cursor: pointer;
+}
+.leftmidlist li{
+    font-size: 1.2rem;
+     padding: 4px 0px 10px 0px;
+
+     /* padding:14px 2px 10px 10px; */
+}
+.leftmidlist li:hover{
+    background-color: #EADBC8;
+}
+.leftmid p{
+    padding-left: 4px;
+    margin-left: 32px;
+    color:cadetblue;
+}
+.end{
+    margin-left: 20px;
+    font-size: 1rem;
+
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+.mid{
+    height: 97vh;
+    width: 35%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.search{
+    /* position: absolute;
+    top: 50px; */
+    margin-top: 50px;
+    margin-left: 25%;
+    width: 600px;
+    height: 35px;
+
+  }
+  .searchBar{
+    width: 40%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  .search-btn{
+    background-color: transparent;
+    cursor: pointer;
+    padding: 1px;
+  }
+  .search i{
+    cursor: pointer;
+  }
+.midmidhead{
+    display: flex;
+    flex-direction: row;
+}
+.midmidhead h3{
+    margin: 20px auto 20px 10px;
+}
+.midmidhead i{
+    margin: 20px 5px 20px auto;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.midmid{
+    display: flex;
+    flex-direction: column;
+    padding-right:30px ;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+}
+.midmid ::after{
+
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgb(235, 221, 221) 900%);
+        width: 100%;
+        height: 2em;
+
+}
+.midmid::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .midmid::-webkit-scrollbar-thumb {
+    background: #EADBC8;
+    border-radius: 5px;
+  }
+  .midmid::-webkit-scrollbar-track {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+  }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F0E5;
+    border-radius: 20px;
+    height: 90%;
+    margin: 0 20px 20px 10px ;
+}
+.container:hover{
+    background-color: #EADBC8;
+}
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* .right{
+    height: 97vh;
+    width: 46%;
+    border-radius: 0 20px 20px 0;
+    background-color: #fff;
+    overflow-y: scroll;
+} */
+.content{
+    display: flex;
+    flex-direction: column;
+    padding-right:30px ;
+    padding-bottom: 20px;
+    /* overflow-y: scroll; */
+
+}
+
+.profile{
+    width: 100%;
+    height: 80px;
+    /* background-color: #EADBC8; */
+    margin: 20px 40px 0px 40px;
+    /* position: fixed; */
+    position: relative;
+}
+.user{
+    position: absolute;
+    top:30%;
+    right: 9%;
+    border-radius: 20px;
+    padding: 2px 20px 2px 20px;
+    background-color: black;
+    color: #fff;
+    display: flex;
+}
+.user i{
+    padding-top: 25%;
+}
+.Image{
+    width: 100%;
+    margin: 10px;
+    margin-top: 0px;
+    height: fit-content;
+    background-color: #EADBC8;
+    border-radius: 20px;
+}
+.noteimg{
+    border-radius: 10px;
+    width: 100%;
+}
+.Opened{
+    background-color: #EADBC8;
+    width: 100%;
+    height: fit-content;
+    padding: 20px ;
+    margin: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+
+
+}
+.co{
+    /* overflow-y: scroll; */
+    display: flex;
+    flex-direction: column;
+
+}
+.right::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .right::-webkit-scrollbar-thumb {
+    background: #DAC0A3;
+    border-radius: 5px;
+  }
+  .right::-webkit-scrollbar-track {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+  }
+  .wholeRight{
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+    width: 46%;
+    border-radius: 0 20px 20px 0;
+    background-color: #fff;
+
+  }
+  .right{
+    margin-top: 50px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    /* scroll-behavior: auto; */
+  }
+
+.popup {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+    /* margin-right: 20px; */
+  }
+  .popup li{
+    list-style: none;
+  }
+
+  .popup-btn {
+    background-color: #F8F0E5;
+    color: black;
+    width: 100%;
+    /* padding: 0px 40px; */
+    border: none;
+    /* border-radius: 4px; */
+    cursor: pointer;
+  }
+
+  .popup-content {
+    display: none;
+    position: absolute;
+    background-color: #EADBC8;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 3;
+    animation: fadeInScale 0.3s ease;
+    top: calc(-100% + 80px); /* Adjust this value as needed */
+    right: 20px;
+  }
+
+  .popup:hover .popup-content {
+    display: block;
+    z-index: 3;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .popup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .popup-content a:hover {
+    background-color: #F8F0E5;
+    z-index: 9;
+  }
+  .dropClock{
+width: 40%;
+height: 40px;
+position: absolute;
+margin-left: 30%;
+background-color: #102C57;
+display: block;
+color: #fff;
+z-index: 12;
+border-radius: 0 0 20px 20px;
+}
+.timer{
+  text-align: center;
+  font-size: 1.5rem;
+
+}
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="dropClock"><div class="timer">00:00:00</div></div>
+      <div class="left">
+        <div class="leftHead">
+          <h3>Edu_Hub</h3>
+          <hr />
+        </div>
+        <div class="leftmid">
+          <ul class="leftmidlist" id="leftmidlist">
+            <li>
+              <i class="fa-solid fa-house-user fa-lg"></i
+              ><a href="{% url 'workspace' %}">&emsp;Home</a>
+            </li>
+            <li style="padding-left: 3px">
+              <i class="fa-solid fa-square-plus fa-lg"></i
+              ><a href="{% url 'create_new' %}">&emsp;Create New</a>
+            </li>
+            <li style="padding-left: 3px">
+              <i
+                class="fa-solid fa-note-sticky fa-lg"
+                style="color: #000000"
+              ></i
+              ><a href="{% url 'notes' %}">&emsp;Notes</a>
+            </li>
+            <li style="padding-left: 3px">
+              <i class="fa-solid fa-bell fa-lg"></i
+              ><a href="{% url 'dashboard' %}">&emsp;Dashboard</a>
+            </li>
+          </ul>
+          <p>Workspace</p>
+        </div>
+        <div class="leftend">
+          <ul class="leftmidlist end" id="leftmidlist">
+            <li>
+              <i class="fa-solid fa-hourglass-end fa-sm"></i
+              ><a href="{% url 'deadlines' %}">&emsp;Deadlines</a>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-list-check fa-sm"></i
+            </li>
+            <li>
+              <i class="fa-solid fa-text-width fa-sm"></i
+              ><a href="{% url 'summarization' %}">&emsp;Summarization</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-calendar-days fa-sm"></i
+              ><a href="{% url 'calendar' %}">&emsp;Calendar</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-headphones fa-sm" style="color: #000000"></i
+              ><a href="{% url 'music' %}">&emsp;Music</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-trash-can fa-sm" style="color: #000000"></i
+              ><a href="{% url 'trash' %}">&emsp;Trash</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mid">
+        <div class="midhead">
+          <form method="get">
+            <div class="search">
+              <input
+                type="search"
+                name="search"
+                id=""
+                class="searchBar"
+                placeholder="&emsp;Search notes..."
+                value="{{ query }}"
+              />
+              <button class="search-button" type="submit"><i
+              class="fa-solid fa-magnifying-glass fa-xl"
+              style="color: #fff"
+            ></i></button>
+            </div>
+          </form>
+        </div>
+        <div class="midmidhead">
+          <h3>Notes</h3>
+          <i class="fa-solid fa-braille fa-sm"></i>
+        </div>
+        <div class="midmid">
+          {% for item in notes %}
+          <div class="container">
+
+            <div id="item-detail" class="midmidhead">
+              <h3><li><a href="{% url 'notes' item.pk %}">{{ item.title }}</a></li></h3>
+              <!-- <i class="fa-regular fa-circle fa-sm" style="color: #000000"></i> -->
+              <div class="popup">
+                <li class="popup-btn">
+                  <i class="fa-regular fa-circle fa-sm" style="color: #000000"></i>
+                </li>
+                <div class="popup-content">
+                  <a href="{% url 'delete' item.pk %}">Delete</a>
+                  <a href="{% url 'edit' item.pk %}">Edit</a>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              {{ item.explanation | slice:30 }}...
+            </p>
+            <p>{{ item.saved }}</p>
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="wholeRight">
+        <div class="profile">
+          <div class="user">
+            <h4>{{ request.user }}</h4>
+            <i class="fa-solid fa-chevron-down fa-sm" style="color: #ffffff;"></i>
+          </div>
+        </div>
+        <div class="right">
+          <div class="content">
+
+            <div class="co">
+              <div class="Image">
+                <img class="noteimg" src="{% static 'Notes1.png' %}" alt="">
+              </div>
+
+                  {% if results %}
+                    <ul>
+                      {% for result in results %}
+                        <div id="item-detail" class="Opened">
+                          <h3 style="text-align: center;">{{ result.title }}</h3>
+                          <p>{{ result.content | safe }}</p>
+                        </div>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <div id="item-detail" class="Opened">
+                      <h3 style="text-align: center;">{{ note.title }}</h3>
+                      <p>{{ note.content | safe }}</p>
+                    </div>
+                  {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Attach a click event handler to the item links
+        $('#item-list a').on('click', function(e) {
+            e.preventDefault();
+            var itemId = $(this).data('item-id');
+
+            // Make an AJAX request to fetch the item's detail view content
+
+            });
+        });
+    });
+</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const listItems = document.querySelectorAll("#leftmidlist li");
+
+        listItems.forEach((li) => {
+          li.addEventListener("click", function () {
+            const link = li.querySelector("a");
+            if (link) {
+              window.location.href = link.href;
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

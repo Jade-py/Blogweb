@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/LogInTrans.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@600;900&family=Open+Sans:wght@600&family=Patua+One&family=Poppins&family=Tektur&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@600;900&family=Open+Sans:wght@600&family=Patua+One&family=Poppins&family=Tektur&family=Ubuntu&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/ecb170e391.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.he a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 18px;
+  margin-left: 25px;
+  transition: all 0.2s;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 18px;
+  margin-left: 25px;
+  transition: all 0.2s;
+}
+/* a:hover {
+  font-size: 22px;
+} */
+
+ul {
+  list-style: none;
+}
+.splash{
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(51,134,106);
+background: radial-gradient(circle, rgba(51,134,106,1) 22%, rgba(56,114,89,1) 100%)
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideUp 1s ease, fadeOut 1s ease 1s;
+  z-index: 2; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4BA15A;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  z-index: 2;
+  transition: transform 0.5s ease, opacity 0.5s ease 0.5s;
+}
+.splash h1{
+  margin-left: 100px;
+  color: #fff;
+  font-size: 80px;
+  font-weight: 600;
+  font-family: 'Patua One', cursive;
+
+}
+.content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(100%);
+  /* transition: opacity 1s ease 1s, transform 1s ease; */
+}
+
+@keyframes slideUp {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(-100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+.main{
+/* background-color:aqua; */
+width: 100%;
+/* margin: 10px; */
+height: 100vh;
+display: flex;
+position: relative;
+/* background-image: url(/images/WhatsApp\ Image\ 2023-08-27\ at\ 10.55.24\ PM.jpeg); */
+/* background-color: #4BA15A; */
+}
+.he img{
+  height: 100vh;
+  width: 80%;
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  z-index: -1;
+  /* filter: brightness(0.4); */
+  object-fit: cover;
+}
+.left{
+  width: 40%;
+  height: 98%;
+  margin-top: 13px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+  border-radius: 20px;
+}
+.Card{
+  width: 90%;
+  height: 90%;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.CardHead{
+  width: 100%;
+  height: 15%;
+  /* background-color: #4BA15A; */
+}
+.CardHead h1{
+  font-family: 'Lilita One', cursive;
+  text-align: center;
+  /* color: #4BA15A; */
+  font-size: 3rem;
+}
+.CardBody{
+  margin-top: 20px;
+
+}
+.CardBody h4{
+  text-align: center;
+}
+.formCard{
+  margin-top: 10px;
+}
+.form-group{
+  margin-left: 20px;
+  padding-left: 50px;
+  display: block;
+<!--  background-color:#000;-->
+  margin-top:20px
+  width:100px;
+}
+.form-group label{
+<!--margin-left:400px-->
+}
+.form-group input{
+  border: none;
+  border-bottom: 2px solid #B9B4C7;
+  border-radius: 0;
+  margin-left:40px;
+  width:90%;
+}
+.pass{
+  margin-top: 20px;
+}
+.bottom{
+  width: 100%;
+  /* height: 90%; */
+  /* background-color: #4BA15A; */
+  display: grid;
+  justify-content:center ;
+  align-items: center;
+}
+.sub{
+  width: 150px;
+  border-radius: 40px;
+  padding: 10px;
+}
+.google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  position: relative; /* For positioning the "or" text */
+}
+
+.google hr {
+  flex: 1; /* Take up available space */
+  height: 2px;
+  background-color: #B9B4C7;
+  margin: 0;
+  width: 10px;
+
+  /* margin-left: 100px; */
+}
+
+.google p {
+  background-color: #fff;
+  padding: 0 10px;
+  margin-right: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  font-size: 1.1rem;
+}
+.bottomCard{
+  width: 100%;
+  display: grid;
+  justify-content:center ;
+  align-items: center;
+}
+.G{
+  background-color: transparent;
+  border:2px solid  #B9B4C7;
+  background-color: #B9B4C7;
+  padding: 10px 15px;
+  border-radius :30px;
+  margin-top: 5px;
+}
+.G:hover{
+  background-color: #fff;
+}
+.SignUp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="splash" id="cover">
+      <h1>Edu Hub</h1>
+    </div>
+    <div class="content" id="content">
+      <div class="main">
+        <div class="he">
+          <img src="{% static 'LoginBack1.png.jpg' %}" alt="">
+        </div>
+        <div class="left">
+          <div class="Card">
+            <div class="CardHead">
+              <h1>Edu Hub</h1>
+
+            </div>
+            <div class="CardBody">
+              <h4>Welcome to Edu Hub</h4>
+                <form class="formCard" method="POST">
+                  {% csrf_token %}
+                <div class="form-group">
+                    <label  for="{{ form.username.id_for_label }}" style="padding-left: 40px;color: #B9B4C7;">
+                      Username</label>
+                    <input type="text" class="form-control" name="{{ form.username.name }}"
+                           placeholder="Enter your UserName" style="width: 90%;"/>
+                    {{ form.username.errors }}
+                </div>
+
+              <div class="form-group pass">
+                <label  for="{{ form.password.id_for_label }}" style="padding-left: 40px;color: #B9B4C7;">Password
+                </label>
+                <input type="password" class="form-control" name="{{ form.password.name }}"
+                       placeholder="Enter your Password" style="width: 90%;"/>
+                {{ form.password.errors }}
+              </div>
+              <a align="right"
+                 href="{% url 'password_reset' %}"><p style="margin-right: 10%;">Forgot password?</p></a>
+              <div class="bottom">
+                <button type="submit" class="btn btn-dark sub">Log in</button>
+
+              </div>
+              <div class="google" >
+                <hr style="margin-left: 100px;">
+                <p>Or Sign in with</p>
+                <hr style="margin-right: 100px; margin-left: 100px;">
+              </div>
+              <div class="bottomCard">
+                <a style="text-decoration:none;"
+                   href="{% url 'social:begin' 'google-oauth2' %}"><button
+                        type="button"
+                                                                                              class="G"><i
+                        class="fa-brands fa-google"></i>&nbsp;Continue with
+                  google</button></a>
+                <div class="SignUp">
+                  <p
+                          style="padding-top: 15px; font-size: 1                                                                                                                            .1rem;">Don't have an account?&nbsp;</p>
+                  <a href="transitionPage.html" style="margin: 0; padding: 0;">Sign Up</a>
+                </div>
+
+              </div>
+
+              <!-- <div class="Bottom_LogIn">
+                <p style="margin-top: 5px;">Don't have an account?</p>
+                <a style="margin-top: 5px;"href="SignUpres.html">SignUp</a>
+              </div> -->
+
+            </form>
+            </div>
+          </div>
+
+        </div>
+        <div class="right">
+            <!-- <div class="Image">
+                <img src="/images/LoginSS5.png" alt="">
+            </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+    //     window.onload = function() {
+    //   const leftPanel = document.querySelector('.left');
+    //   const rightPanel = document.querySelector('.right');
+
+    //   leftPanel.style.transform = 'translateX(0)';
+    //   rightPanel.style.transform = 'translateX(0)';
+    // };
+    document.addEventListener("DOMContentLoaded", function () {
+    const cover = document.getElementById("cover");
+    const content = document.getElementById("content");
+
+    setTimeout(function () {
+        cover.style.opacity = "0";
+        cover.style.transform = "translateY(-100%)";
+        content.style.opacity = "1";
+        content.style.transform = "translateY(0)";
+    }, 500); // After 1 second
+});
+    </script>
+
+
+  </body>
+</html>

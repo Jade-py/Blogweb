@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link rel="stylesheet" href="./css/transition.css" />
+    <link rel="stylesheet" href="/css/pagetrans.css"> …
+[11:39 pm, 24/08/2023] Ashutosh: transition page
+[10:12 am, 26/08/2023] Ashutosh: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link rel="stylesheet" href="./css/registerStylish.css" />
+    <link rel="stylesheet" href="/css/pagetrans.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@600;900&family=Open+Sans:wght@600&family=Patua+One&family=Poppins&family=Tektur&family=Ubuntu&display=swap" rel="stylesheet">
+<script
+      src="https://kit.fontawesome.com/ecb170e391.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include jQuery UI library -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Include jQuery UI CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .he a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 18px;
+    margin-left: 25px;
+    transition: all 0.2s;
+  }
+
+  a:hover {
+    font-size: 22px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+
+  .content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     opacity: 0;
+    /* transform: translateY(100%); */
+    /* transition: opacity 1s ease 1s, transform 1s ease;  */
+}
+
+
+
+.main{
+    /* background-color:aqua; */
+    width: 98%;
+    margin: 10px;
+    height: 98vh;
+    display: flex;
+    }
+    .left{
+        width: 40%;
+        height: 100%;
+        transition: transform 1s ease-in-out;
+    transform: translateX(-100%);
+        /* background-color: #4BA15A; */
+    }
+    .top{
+        width: 95%;
+        height: 10%;
+        /* background-color:aqua; */
+        padding: 20px;
+        margin-left: 20px;
+        /* border-bottom: 2px solid #4BA15A; */
+
+    }
+    .top h1{
+        color: #4BA15A;
+        margin-left: 75px;
+        font-family: 'Patua One', cursive;
+    }
+    .image{
+        margin: 100px 90px;
+
+    }
+    .image img{
+        height: 400px;
+        font-weight: 400px;
+    }
+    .right{
+        width: 60%;
+        height: 100%;
+        background-color: #eaf4f4;
+        border-radius: 20px;
+        transition: transform 1s ease-in-out;
+    transform: translateX(100%);
+        /* border-radius: 20px;*/
+        /* position: relative;*/
+        /* background-color: black; */
+    }
+    .head{
+        height: 10%;
+        width: 95%;
+        margin-left: 20px;
+        margin-top: 0;
+        padding-top: 0;
+        /* position: absolute; */
+        /* background-color: aqua; */
+    }
+    /*  */
+    .locate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* position: absolute; */
+        gap: 10px;
+        width: 40%;
+        margin: 0px auto;
+    }
+    .slot{
+        margin-top: 30px;
+    }
+    .locate-btn {
+        background-color: #fff;
+        border: none;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .locate-btn2{
+        background-color: green;
+        border: none;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .locate-hr {
+        flex: 1;
+        height: 2px;
+        /* margin-top: -40px; */
+        background-color: #4BA15A;
+        margin: 0;
+    }
+
+    .tail{
+
+        width: 95%;
+        margin-left: 40px;
+        height: 80%;
+        margin-top: 5%;
+    }
+    .Info{
+        width: 75%;
+        height: fit-content;
+        margin-left: 60px;
+        padding-top: 40px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        color: #4BA15A;
+
+        /* border: 2px solid #4BA15A; */
+
+    }
+    .Info h2{
+        text-align: center;
+        margin-bottom: 20px;
+        color: #4BA15A;
+    }
+    .Name_div{
+        display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20px; */
+    margin-left: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    }
+
+
+    .Name_div input{
+        border-bottom:2px solid #4BA15A;
+        width: 300px;
+    }
+.bottom{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.form-group{
+    padding: 0;
+    margin: 0;
+}
+.form-group p{
+    padding: 0;
+    margin: 0;
+    color: red;
+    font-size: .8rem;
+    }
+    .transition1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    /* background-color: #4BA15A; */
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease-out;
+}
+.transition1.is-active{
+    opacity: 1;
+    pointer-events: all;
+}
+.ui-datepicker-calendar {
+   display: none;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="transition transition1 is-active">
+
+    </div>
+    <div class="content" id="content">
+        <div class="main">
+            <div class="left">
+                <div class="top">
+                    <h1>Edu hub</h1>
+                </div>
+                <div class="bottom">
+                    <div class="image"><img src="{% static 'registerSS.PNG' %}" alt="" srcset=""></div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="head">
+                    <div class="locate">
+                        <div class="slot">
+                            <a href="/transitionPage.html"><button  class="locate-btn" type="button"><i class="fa-solid fa-1" style="color: #4BA15A;"></i></button></a>
+                            <p>SignUp</p>
+                        </div>
+
+
+                            <hr class="locate-hr">
+
+                        <div class="slot">
+                            <a href="/registerStylish.html"><button class="locate-btn2" type="button"><a href="/registerStylish.html"></a><i class="fa-solid fa-2" style="color:#ffffff ;"></i></button></a>
+                            <p>Register</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tail">
+                    <div class="Info">
+
+                        <!-- <img src="./images/Reg_back.png" alt=""> -->
+                        <h2>Tell Us About Your Self</h2>
+                        <div class="Reg_Card">
+                            <form class="formC" method="POST">
+                            {% csrf_token %}
+                                <div class="Name_div">
+                                    <div class="form-group" style=" padding-top: 20px;">
+                                        <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                                        {{ form.first_name }}
+                                        {{ form.first_name.errors }}
+                                        <!-- <p>This username is Already Taken</p> -->
+                                    </div>
+                                    <div class="form-group" style="padding-top: 20px;">
+                                        <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                                        {{ form.last_name }}
+                                        {{ form.last_name.errors }}
+                                        <!-- <p>This username is Already Taken</p> -->
+                                    </div>
+                                </div>
+                                <div class="Name_div">
+                                    <div class="form-group" style=" padding-top: 20px;">
+                                        <label for="{{ form.college_name.id_for_label }}">Your College</label>
+                                        {{ form.college_name }}
+                                        {{ form.college_name.errors }}
+                                        <!-- <p>This username is Already Taken</p> -->
+                                    </div>
+                                    <div class="form-group" style="padding-top: 20px;">
+                                        <label for="{{ form.stream.id_for_label }}">Stream</label>
+                                        {{ form.stream }}
+                                        {{ form.stream.errors }}
+                                        <!-- <p>This username is Already Taken</p> -->
+                                    </div>
+                                </div>
+                                <div class="Name_div">
+                                    <div class="form-group" style=" padding-top: 20px; padding-bottom: 20px;">
+                                        <label for="{{ form.graduation_year.id_for_label }}">Graduation Year</label>
+                                        {{ form.graduation_year }}
+                                        {{ form.graduation_year.errors }}
+                                        <!-- <p>This username is Already Taken</p> -->
+                                    </div>
+                                    <div class="form-group" style="padding-top: 20px; padding-bottom: 20px;">
+                                        <label for="{{ form.phone_no.id_for_label }}.">Phone No.</label>
+                                        {{ form.phone_no }}
+                                        {{ form.phone_no.errors }}
+
+                                        <!-- <p>This username is Already Taken</p> -->
+                                    </div>
+                                </div>
+                                <!-- <div class="goal" style="margin: 2px auto; align-items: center; justify-content: center; width: fit-content; ">
+                                    <label for="Goal" style="margin: 0px auto; color: #4BA15A;">Your Goal</label>
+                                        <input type="text" class="form-control" name="Goal" placeholder="Your Goal in 1 line" style=" margin: 0px auto;width: 400px; border-bottom:2px solid #4BA15A;"/>
+                                </div> -->
+                                <div class="bottom">
+                                    <button type="submit" class="btn btn-outline-success">Let's Start</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // script.js
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
+    const cover = document.getElementById("cover");
+    const content = document.getElementById("content");
+
+    setTimeout(function () {
+
+        content.style.opacity = "1";
+        content.style.transform = "translateY(0)";
+    }, 500); // After 1 second
+});
+window.onload = () => {
+    const transition_el = document.querySelector(".transition")
+    const anchors = document.querySelectorAll('a');
+    setTimeout(() => {
+        transition_el.classList.remove('is-active')
+    }, 500);
+
+    const leftPanel = document.querySelector('.left');
+      const rightPanel = document.querySelector('.right');
+
+      leftPanel.style.transform = 'translateX(0)';
+      rightPanel.style.transform = 'translateX(0)';
+//     for (let i = 0; i < anchors.length; i++) {
+//     const anchor = anchors[i];
+
+//     anchor.addEventListener('click', e => {
+//       e.preventDefault();
+//       let target = e.target.href;
+
+//       console.log(transition_el);
+
+//       transition_el.classList.add('is-active');
+
+//       console.log(transition_el);
+
+//       setInterval(() => {
+//         window.location.href = target;
+//       }, 500);
+//     })
+//   }
+
+}
+/////////////////////////////
+// script.js
+$(document).ready(function() {
+  $(".year-picker").datepicker({
+    dateFormat: "yy",
+    changeYear: true,
+    yearRange: `${new Date().getFullYear() - 10}:${new Date().getFullYear() + 10}`,
+    showButtonPanel: true,
+    onClose: function(dateText, inst) {
+      var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+      $(this).datepicker("setDate", new Date(year, 1));
+    }
+  });
+});
+
+    </script>
+</body>
+</html>
