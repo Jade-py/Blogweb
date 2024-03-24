@@ -322,22 +322,11 @@ position: relative;
                 <button type="submit" class="btn btn-dark sub">Log in</button>
 
               </div>
-              <div class="google" >
-                <hr style="margin-left: 100px;">
-                <p>Or Sign in with</p>
-                <hr style="margin-right: 100px; margin-left: 100px;">
-              </div>
               <div class="bottomCard">
-                <a style="text-decoration:none;"
-                   href="{% url 'social:begin' 'google-oauth2' %}"><button
-                        type="button"
-                                                                                              class="G"><i
-                        class="fa-brands fa-google"></i>&nbsp;Continue with
-                  google</button></a>
                 <div class="SignUp">
                   <p
                           style="padding-top: 15px; font-size: 1                                                                                                                            .1rem;">Don't have an account?&nbsp;</p>
-                  <a href="transitionPage.html" style="margin: 0; padding: 0;">Sign Up</a>
+                  <a href="{% url 'signup' %}" style="margin: 0; padding: 0;">Sign Up</a>
                 </div>
 
               </div>

@@ -1,26 +1,29 @@
+import os
 from pathlib import Path
+import pymysql
+from environs import Env
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w7keio@c9e*vk9e@=0&5ase^672d0w(y*ka1-z)!tz6s$0a7ot'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", False) == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
-
-SITE_ID = 3
-
 INSTALLED_APPS = [
-    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,23 +31,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'users',
     'workspace',
     'tinymce',
-    'social_django',
 ]
-
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "SCOPE": [
-            "profile",
-            "email"
-        ],
-        "AUTH_PARAMS": {
-            "access_type": "online"
-        }
-    }
-}
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,8 +60,6 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -108,26 +96,20 @@ WSGI_APPLICATION = 'eduweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eduweb',
-        'USER': 'jadgifsa',
-        'PASSWORD': 'mERCIDES@21',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': os.getenv('MYSQL_NAME'),
+        'USER': os.getenv('MYSQL_USER'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': os.getenv('MYSQL_HOST'),
+        'PORT': os.getenv('MYSQL_PORT'),
         'OPTIONS': {
             'charset': 'utf8mb4',
+            'ssl': {
+                'key': BASE_DIR / 'DigiCertGlobalRootCA.crt.pem'
+            }
         },
     }
 }
-AUTHENTICATION_BACKENDS = [
-    "social_core.backends.google.GoogleOAuth2",
-    "django.contrib.auth.backends.ModelBackend",
-]
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '631360226506-1su6jbf1h502o0gegqett3rc3qqsn08q.apps.googleusercontent.com'
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'prompt': 'select_account'}
+pymysql.install_as_MySQLdb()
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -173,4 +155,10 @@ LOGIN_REDIRECT_URL = 'workspace'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')

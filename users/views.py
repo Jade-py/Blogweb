@@ -67,20 +67,5 @@ def registration_view(request):
     return render(request, 'registration.html', {'form': form})
 
 
-class LoginView(LoginView):
-    form_class = LoginForm
-
-    def login_view(request):
-        if request.method == 'POST':
-            form = LoginForm(request, data=request.POST)
-            if form.is_valid():
-                pass
-            else:
-                return render(request, 'login.html', {'form': form})
-        else:
-            form = LoginForm()
-            return render(request, 'login.html', {'form': form})
-
-
 def home_view(request):
     return render(request, 'home.html')
