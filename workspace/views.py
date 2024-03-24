@@ -185,7 +185,7 @@ def ListNotes(request):
 
         except:
             note = Notes.objects.get(pk=Notes.objects.first().pk)
-            notes = Notes.objects.filter(author='jade-py').order_by('-pk')
+            notes = Notes.objects.filter(author='jadepy').order_by('-pk')
             print('yo2')
 
         context = {'notes': notes,
@@ -199,9 +199,9 @@ def notes(request, pk):
     note = Notes.objects.get(pk=pk)
     try:
         print('yo1')
-        notes = Notes.objects.filter(author='jade-py').order_by('-pk')
+        notes = Notes.objects.filter(author='jadepy').order_by('-pk')
     except:
-        notes = Notes.objects.filter(author='jade-py').order_by('-pk')
+        notes = Notes.objects.filter(author='jadepy').order_by('-pk')
 
     context = {'note': note,
                'notes': notes
