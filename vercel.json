@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "eduweb/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "eduweb/wsgi.py"
+    }
+  ]
+}
